@@ -1,0 +1,22 @@
+{
+  "name": "@icon-forger/taro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "dependencies": {
+    "@icon-forger/compiler": "workspace:*"
+  },
+  "devDependencies": {
+    "@tarojs/components": "^4.2.0",
+    "@tarojs/service": "^4.2.0",
+    "typescript": "^5.8.2",
+    "webpack": "^5.106.2"
+  }
+}

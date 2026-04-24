@@ -1,0 +1,24 @@
+{
+  "name": "@icon-forger/compiler",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "peerDependencies": {
+    "webpack": "^5.106.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.8.2",
+    "webpack": "^5.106.2"
+  },
+  "dependencies": {
+    "fantasticon": "^4.1.0"
+  }
+}

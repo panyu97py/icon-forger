@@ -1,0 +1,16 @@
+{
+  "name": "icon-forger",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "clear-dist": "rm -rf dist && pnpm -r exec rm -rf dist",
+    "build": "pnpm clear-dist && pnpm --filter @icon-forger/* build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "devDependencies": {
+    "lerna": "^9.0.3"
+  }
+}

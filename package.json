@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "clear-dist": "rm -rf dist && pnpm -r exec rm -rf dist",
-    "build": "pnpm clear-dist && pnpm --filter @icon-forger/* build"
+    "build": "pnpm clear-dist && pnpm --filter @icon-forger/* build",
+    "version": "lerna version"
   },
   "keywords": [],
   "author": "",

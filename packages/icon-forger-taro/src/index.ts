@@ -1,6 +1,6 @@
-import type { IPluginContext } from '@tarojs/service'
-import {IconForgerPlugin,iconForgerLoader,InjectIconfontStyleOpt} from "@icon-forger/compiler";
-import { Compilation } from 'webpack'
+import type {IPluginContext} from '@tarojs/service'
+import {iconForgerLoader, IconForgerPlugin, InjectIconfontStyleOpt} from "@icon-forger/compiler";
+import {Compilation} from 'webpack'
 
 const styleSuffix:Record<string, string>={
     'weapp':'.wxss',
@@ -12,11 +12,11 @@ export default (ctx: IPluginContext) => {
     ctx.modifyWebpackChain(({ chain }) => {
         const template = (iconName:string) => {
             return `
-            import {Text} from '@tarojs/components';
-            export const Icon = (props) => {
-                const { color, size } = props
-                return <Text className="iconfont-${iconName}" style={{color, fontSize: size || 16}}></Text>
-            }
+                import {Text} from '@tarojs/components';
+                export const Icon = (props) => {
+                    const { color, size } = props
+                    return <Text className="iconfont-${iconName}" style={{color, fontSize: size || 16}}></Text>
+                }
             `
         }
         chain.module

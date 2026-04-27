@@ -1,27 +1,17 @@
 import fs from "fs";
 import path from 'path';
+import { SyncHook } from 'tapable';
 import { generateFonts, FontAssetType, OtherAssetType } from 'fantasticon';
 import { Compiler, Compilation, NormalModule } from 'webpack'
-import {LoaderOptions} from "./loader";
+import {CompilationAssets, EmitIconFontAssetsOpts, Hooks, IconAssetInfo} from "./types";
 
-interface IconAssetInfo {
-    name: string;
-    path: string;
-    source: string;
-}
-
-export interface InjectIconfontStyleOpt{
-    compiler:Compiler;
-    pluginName:string;
-    cssSource:string;
-}
-
-export interface IconForgerPluginOptions  extends LoaderOptions{
-    injectIconfontStyle:(opt:InjectIconfontStyleOpt) => void;
-    cacheDir?: string;
-}
+const compilationHooksMap = new WeakMap<Compilation, Hooks>();
 
 const PLUGIN_NAME = 'IconForgerPlugin';
+
+export interface IconForgerPluginOptions {
+    cacheDir?: string;
+}
 
 export class IconForgerPlugin {
     private options: IconForgerPluginOptions;
@@ -30,6 +20,16 @@ export class IconForgerPlugin {
 
     constructor(options: IconForgerPluginOptions) {
         this.options = options;
+    }
+
+    static getCompilationHooks(compilation: Compilation) {
+        if (!compilationHooksMap.has(compilation)) {
+            const hooks = {
+                emitIconFontAssets: new SyncHook<EmitIconFontAssetsOpts>(['opts']),
+            };
+            compilationHooksMap.set(compilation, hooks);
+        }
+        return compilationHooksMap.get(compilation);
     }
 
     apply(compiler: Compiler) {
@@ -52,15 +52,22 @@ export class IconForgerPlugin {
 
             const stage = compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONS
 
-            compilation.hooks.processAssets.tapPromise({name:PLUGIN_NAME, stage} ,async ()=>{
+            compilation.hooks.processAssets.tapPromise({name:PLUGIN_NAME, stage} ,async (assets:CompilationAssets)=>{
                 const cacheDir = path.resolve('node_modules/.cache', this.options.cacheDir || 'icon-forger');
                 const sourcesDir = path.resolve(cacheDir,'sources');
                 const iconfontDir  = path.resolve(cacheDir,'iconfont');
+
+                // 清空缓存目录
                 fs.rmSync(cacheDir, {recursive: true, force: true});
                 fs.mkdirSync(cacheDir, { recursive: true });
-                const iconAssets =   this.iconMap.values()
+
+                // 创建缓存目录
                 fs.mkdirSync(sourcesDir, { recursive: true });
-                iconAssets.forEach(icon =>fs.writeFileSync(path.resolve(sourcesDir, `${icon.name}.svg`), icon.source));
+                fs.mkdirSync(iconfontDir, { recursive: true });
+
+                // 编译图标字体
+                const iconAssets = Array.from(this.iconMap.values());
+                iconAssets.forEach(icon => fs.writeFileSync(path.resolve(sourcesDir, `${icon.name}.svg`), icon.source));
                 await generateFonts({
                     inputDir: sourcesDir,
                     outputDir: iconfontDir,
@@ -68,8 +75,8 @@ export class IconForgerPlugin {
                     fontTypes: [FontAssetType.WOFF2],
                     assetTypes: [OtherAssetType.CSS],
                 });
-                const cssSource = fs.readFileSync(path.resolve(iconfontDir,'iconfont.css'), 'utf-8');
-                this.options.injectIconfontStyle({cssSource, compiler, pluginName:PLUGIN_NAME});
+
+                compilationHooksMap.get(compilation)?.emitIconFontAssets.call({iconFontAssetsDir:iconfontDir,compilationAssets:assets});
             })
         });
     }

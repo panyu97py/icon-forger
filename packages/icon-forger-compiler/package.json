@@ -3,6 +3,11 @@
   "version": "0.0.1-alpha.0",
   "description": "",
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./loader": "./dist/loader.js",
+    "./plugin": "./dist/plugin.js"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -26,6 +31,7 @@
     "webpack": "^5.106.2"
   },
   "dependencies": {
-    "fantasticon": "^4.1.0"
+    "fantasticon": "^4.1.0",
+    "tapable": "^2.3.3"
   }
 }

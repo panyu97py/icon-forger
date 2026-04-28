@@ -3,6 +3,7 @@
   "version": "0.0.1-alpha.4",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -22,12 +23,14 @@
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": ">=17.0.2",
+    "@tarojs/components": ">=3.2.16"
   },
   "dependencies": {
     "@babel/template": "^7.28.6",
     "@babel/types": "^7.29.0",
-    "@icon-forger/compiler": "workspace:*"
+    "@icon-forger/compiler": "workspace:*",
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@tarojs/components": "^4.2.0",

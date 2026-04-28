@@ -96,6 +96,9 @@ importers:
       '@icon-forger/compiler':
         specifier: workspace:*
         version: link:../icon-forger-compiler
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
     devDependencies:
       '@tarojs/components':
         specifier: ^4.2.0

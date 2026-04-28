@@ -22,7 +22,7 @@ export default (ctx: IPluginContext) => {
             return { ...jsxElementNodeRest, openingElement: finalOpeningElements }
           }
         }
-        const iconForgerPlugin = [require.resolve('@icon-forger/babel'), iconForgerPluginOpts]
+        const iconForgerPlugin = [require.resolve('@icon-forger/compiler/babel'), iconForgerPluginOpts]
         return { ...rest, plugins: [...curPlugins, iconForgerPlugin] }
       })
     chain.plugin('icon-forger-plugin').use(IconForgerPlugin)

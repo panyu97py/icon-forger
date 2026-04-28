@@ -3,11 +3,6 @@
   "version": "0.0.1-alpha.1",
   "description": "",
   "main": "dist/index.js",
-  "exports": {
-    ".": "./dist/index.js",
-    "./loader": "./dist/loader.js",
-    "./plugin": "./dist/plugin.js"
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -23,14 +18,37 @@
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "peerDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/generator": "^7.29.1",
+    "@babel/parser": "^7.29.2",
+    "@babel/traverse": "^7.29.0",
+    "@babel/types": "^7.29.0",
     "webpack": "^5.106.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/generator": "^7.29.1",
+    "@babel/parser": "^7.29.2",
+    "@babel/traverse": "^7.29.0",
+    "@babel/types": "^7.29.0",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__generator": "^7.27.0",
+    "@types/babel__parser": "^7.1.5",
+    "@types/babel__template": "^7.4.4",
+    "@types/babel__traverse": "^7.28.0",
     "@types/node": "^25.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^8.19.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
     "typescript": "^5.8.2",
     "webpack": "^5.106.2"
   },
   "dependencies": {
+    "@babel/template": "^7.28.6",
     "fantasticon": "^4.1.0",
     "tapable": "^2.3.3"
   }

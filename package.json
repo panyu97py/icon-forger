@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "clear-dist": "rm -rf dist && pnpm -r exec rm -rf dist",
+    "clear-all": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
     "build": "pnpm clear-dist && pnpm --filter @icon-forger/* build",
     "publish": "pnpm --filter @icon-forger/* publish",
     "version": "lerna version"

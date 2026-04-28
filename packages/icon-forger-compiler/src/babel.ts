@@ -91,8 +91,9 @@ export default function TransformIcon ():PluginObj<TransformState> {
         const { templateCode, dependRequire = [] } = state.opts
         const iconName = formatName(source.value || '')
         const { attributes } = openingElement
-        nodePath.replaceWith(templateCode({ iconName, attributes }))
+        if (!state.dependRequire) state.dependRequire = new Set()
         dependRequire.forEach((item) => state.dependRequire.add(item))
+        nodePath.replaceWith(templateCode({ iconName, attributes }))
       },
       Program: {
         exit (programPath: NodePath<Program>, state:TransformState) {

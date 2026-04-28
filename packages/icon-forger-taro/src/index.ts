@@ -12,9 +12,9 @@ export default (ctx: IPluginContext) => {
       .tap((options:any) => {
         const { plugins: curPlugins = [], ...rest } = options
         const iconForgerPluginOpts = {
-          dependRequire: ['import { BaseIcon } from "@icon-forger/base-icon"'],
+          dependRequire: ['import { BaseIcon } from "@icon-forger/taro/base-icon"'],
           templateCode: (opts:TemplateCodeOpts) => {
-            const jsxElementNode = template.expression(`<BaseIcon name="${opts.iconName}" />`)() as JSXElement
+            const jsxElementNode = template.expression(`<BaseIcon name="${opts.iconName}" />`, { plugins: ['jsx'] })() as JSXElement
             const { openingElement, ...jsxElementNodeRest } = jsxElementNode
             const { attributes, ...openingElementRest } = openingElement
             const finalAttributes = [...attributes, ...opts.attributes]

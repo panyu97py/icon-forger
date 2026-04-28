@@ -1,12 +1,14 @@
 import { Text } from '@tarojs/components'
+import classNames from 'classnames'
 import React from 'react'
 
-interface IconProps{
+export interface IconProps {
     size?:number;
     color?:string;
     name?:string;
+    className?:string;
 }
 export const Icon: React.FC<IconProps> = (props) => {
-  const { color, size, name } = props
-  return <Text className={`icon-${name}`} style={{ color, fontSize: size || 16 }}></Text>
+  const { color, size, name, className } = props
+  return <Text className={classNames(`icon-${name}`, className)} style={{ color, fontSize: size || 16 }}></Text>
 }

@@ -1,9 +1,9 @@
 import {
   Expression,
-  ImportDeclaration, JSXIdentifier,
+  ImportDeclaration, JSXElement, JSXIdentifier,
   JSXMemberExpression,
   JSXNamespacedName,
-  JSXOpeningElement, Program
+  Program
 } from '@babel/types'
 import template from '@babel/template'
 import { NodePath, PluginObj } from '@babel/core'
@@ -73,8 +73,9 @@ export default function TransformIcon ():PluginObj<TransformState> {
   return {
     name: 'TransformIcon',
     visitor: {
-      JSXOpeningElement: (nodePath: NodePath<JSXOpeningElement>, state: TransformState) => {
-        const name = getJsxRootName(nodePath.node.name)
+      JSXElement: (nodePath: NodePath<JSXElement>, state: TransformState) => {
+        const { openingElement } = nodePath.node
+        const name = getJsxRootName(openingElement.name)
         const sourcePath = name ? resolveBinding(nodePath, name) : null
 
         // 检查是否是svg文件
@@ -89,7 +90,7 @@ export default function TransformIcon ():PluginObj<TransformState> {
         // 替换 Jsx 元素
         const { templateCode, dependRequire = [] } = state.opts
         const iconName = formatName(source.value || '')
-        const { attributes } = nodePath.node
+        const { attributes } = openingElement
         nodePath.replaceWith(templateCode({ iconName, attributes }))
         dependRequire.forEach((item) => state.dependRequire.add(item))
       },

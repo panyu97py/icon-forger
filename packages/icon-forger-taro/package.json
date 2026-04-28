@@ -6,6 +6,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": "./dist/index.js",
+    "./base-icon": "./dist/base-icon.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panyu97py/icon-forger.git"
@@ -21,11 +25,14 @@
     "react": "^17.0.2"
   },
   "dependencies": {
+    "@babel/template": "^7.28.6",
+    "@babel/types": "^7.29.0",
     "@icon-forger/compiler": "workspace:*"
   },
   "devDependencies": {
     "@tarojs/components": "^4.2.0",
     "@tarojs/service": "^4.2.0",
+    "@types/babel__template": "^7.4.4",
     "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",

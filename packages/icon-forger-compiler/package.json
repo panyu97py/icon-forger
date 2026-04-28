@@ -6,6 +6,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": "./dist/index.js",
+    "./babel": "./dist/babel.js",
+    "./plugin": "./dist/plugin.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panyu97py/icon-forger.git"

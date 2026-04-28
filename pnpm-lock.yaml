@@ -87,6 +87,12 @@ importers:
 
   packages/icon-forger-taro:
     dependencies:
+      '@babel/template':
+        specifier: ^7.28.6
+        version: 7.28.6
+      '@babel/types':
+        specifier: ^7.29.0
+        version: 7.29.0
       '@icon-forger/compiler':
         specifier: workspace:*
         version: link:../icon-forger-compiler
@@ -97,6 +103,9 @@ importers:
       '@tarojs/service':
         specifier: ^4.2.0
         version: 4.2.0
+      '@types/babel__template':
+        specifier: ^7.4.4
+        version: 7.4.4
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14

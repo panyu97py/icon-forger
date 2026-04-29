@@ -69,6 +69,9 @@ export class IconForgerPlugin {
         await generateFonts({
           inputDir: sourcesDir,
           outputDir: iconfontDir,
+          templates: {
+            [OtherAssetType.CSS]: path.resolve(__dirname, './template/css.hbs')
+          },
           name: 'iconfont',
           selector: '.iconfont',
           prefix: 'iconfont',

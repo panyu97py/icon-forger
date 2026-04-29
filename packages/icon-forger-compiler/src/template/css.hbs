@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "{{ name }}";
+    src: {{{ fontSrc }}};
+}
+
+{{# if selector }}
+{{ selector }} {
+{{ else }}
+{{ tag }}[class^="{{prefix}}-"], {{ tag }}[class*=" {{prefix}}-"] {
+{{/ if }}
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    vertical-align: center;
+}
+
+{{# if selector }}
+{{ selector }}:before {
+{{ else }}
+{{ tag }}[class^="{{prefix}}-"]:before, {{ tag }}[class*=" {{prefix}}-"]:before {
+{{/ if }}
+    font-family: {{ name }} !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+{{# each codepoints }}
+{{# if ../selector }}
+{{ ../selector }}.{{ ../prefix }}-{{ @key }}:before {
+{{ else }}
+{{ ../prefix }}-{{ @key }}:before {
+{{/ if }}
+    content: "\\{{ codepoint this }}";
+}
+{{/ each }}

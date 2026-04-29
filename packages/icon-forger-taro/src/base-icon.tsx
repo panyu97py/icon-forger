@@ -1,6 +1,7 @@
 import { Text } from '@tarojs/components'
 import classNames from 'classnames'
 import React from 'react'
+import Taro from '@tarojs/taro'
 
 export interface BaseIconProps {
     size?:number;
@@ -10,5 +11,10 @@ export interface BaseIconProps {
 }
 export const BaseIcon: React.FC<BaseIconProps> = (props) => {
   const { color, size, name, className } = props
-  return <Text className={classNames('iconfont', `iconfont-${name}`, className)} style={{ color, fontSize: size || 16 }}/>
+  return (
+      <Text
+          className={classNames('iconfont', `iconfont-${name}`, className)}
+          style={{ color, fontSize: Taro.pxTransform(size || 20) }}
+      />
+  )
 }

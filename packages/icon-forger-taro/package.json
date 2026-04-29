@@ -23,6 +23,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "peerDependencies": {
+    "@tarojs/taro": ">=3.2.16",
     "@tarojs/components": ">=3.2.16",
     "react": ">=17.0.2"
   },
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@tarojs/components": "^4.2.0",
     "@tarojs/service": "^4.2.0",
+    "@tarojs/taro": "^4.2.0",
     "@types/babel__template": "^7.4.4",
     "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "^8.26.1",

@@ -9,6 +9,7 @@ import template from '@babel/template'
 import { NodePath, PluginObj } from '@babel/core'
 import * as types from '@babel/types'
 import { TransformState } from './types'
+import path from 'path'
 
 const getRootName = (node?: Expression | null) => {
   if (node && types.isIdentifier(node)) return node.name
@@ -84,12 +85,11 @@ export default function TransformIcon ():PluginObj<TransformState> {
 
         // 删除具名导入
         const importDefaultSpecifier = specifiers?.find(specifier => types.isImportDefaultSpecifier(specifier))
-        if (!importDefaultSpecifier) sourcePath?.remove()
-        if (importDefaultSpecifier) sourcePath?.replaceWith(types.importDeclaration([importDefaultSpecifier], source))
+        sourcePath?.replaceWith(types.importDeclaration(importDefaultSpecifier ? [importDefaultSpecifier] : [], source))
 
         // 替换 Jsx 元素
         const { templateCode, dependRequire = [] } = state.opts
-        const iconName = formatName(source.value || '')
+        const iconName = path.basename(source.value || '')
         const { attributes } = openingElement
         if (!state.dependRequire) state.dependRequire = new Set()
         dependRequire.forEach((item) => state.dependRequire.add(item))

@@ -30,7 +30,9 @@
     "@babel/template": "^7.28.6",
     "@babel/types": "^7.29.0",
     "@icon-forger/compiler": "workspace:*",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "postcss": "^8.5.12",
+    "postcss-value-parser": "^4.2.0"
   },
   "devDependencies": {
     "@tarojs/components": "^4.2.0",

@@ -99,10 +99,16 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      postcss:
+        specifier: ^8.5.12
+        version: 8.5.12
+      postcss-value-parser:
+        specifier: ^4.2.0
+        version: 4.2.0
     devDependencies:
       '@tarojs/components':
         specifier: ^4.2.0
-        version: 4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
+        version: 4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
       '@tarojs/service':
         specifier: ^4.2.0
         version: 4.2.0
@@ -3397,8 +3403,11 @@ packages:
     resolution: {integrity: sha512-orRsuYpJVw8LdAwqqLykBj9ecS5/cRHlI5+nvTo8LcCKmzDmqVORXtOIYEEQuL9D4BxtA1lm5isAqzQZCoQ6Eg==}
     engines: {node: '>=4'}
 
-  postcss@8.5.10:
-    resolution: {integrity: sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==}
+  postcss-value-parser@4.2.0:
+    resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
+
+  postcss@8.5.12:
+    resolution: {integrity: sha512-W62t/Se6rA0Az3DfCL0AqJwXuKwBeYg6nOaIgzP+xZ7N5BFCI7DYi1qs6ygUYT6rvfi6t9k65UMLJC+PHZpDAA==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -5096,12 +5105,12 @@ snapshots:
       '@tarojs/runtime': 4.2.0
       '@tarojs/shared': 4.2.0
 
-  '@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))':
+  '@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))':
     dependencies:
       '@stencil/core': 2.22.3
       '@tarojs/runtime': 4.2.0
       '@tarojs/shared': 4.2.0
-      '@tarojs/taro': 4.2.0(@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96)))(@tarojs/helper@4.2.0)(@tarojs/shared@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
+      '@tarojs/taro': 4.2.0(@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96)))(@tarojs/helper@4.2.0)(@tarojs/shared@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
       classnames: 2.5.1
       hammerjs: 2.0.8
       hls.js: 1.6.16
@@ -5177,15 +5186,15 @@ snapshots:
 
   '@tarojs/shared@4.2.0': {}
 
-  '@tarojs/taro@4.2.0(@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96)))(@tarojs/helper@4.2.0)(@tarojs/shared@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))':
+  '@tarojs/taro@4.2.0(@tarojs/components@4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96)))(@tarojs/helper@4.2.0)(@tarojs/shared@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))':
     dependencies:
       '@tarojs/api': 4.2.0(@tarojs/runtime@4.2.0)(@tarojs/shared@4.2.0)
-      '@tarojs/components': 4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.10)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
+      '@tarojs/components': 4.2.0(@tarojs/helper@4.2.0)(@types/react@19.2.14)(postcss@8.5.12)(rollup@3.30.0)(webpack@5.106.2(@swc/core@1.3.96))
       '@tarojs/helper': 4.2.0
       '@tarojs/runtime': 4.2.0
       '@tarojs/shared': 4.2.0
       '@types/postcss-url': 10.0.4
-      postcss: 8.5.10
+      postcss: 8.5.12
     optionalDependencies:
       '@types/react': 19.2.14
       rollup: 3.30.0
@@ -5281,7 +5290,7 @@ snapshots:
   '@types/postcss-url@10.0.4':
     dependencies:
       '@types/node': 25.6.0
-      postcss: 8.5.10
+      postcss: 8.5.12
 
   '@types/react@19.2.14':
     dependencies:
@@ -7948,7 +7957,9 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss@8.5.10:
+  postcss-value-parser@4.2.0: {}
+
+  postcss@8.5.12:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1

@@ -1,6 +1,6 @@
 {
   "name": "@icon-forger/taro",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "",
   "main": "dist/index.js",
   "types": "types.d.ts",
@@ -23,8 +23,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "@tarojs/components": ">=3.2.16"
+    "@tarojs/components": ">=3.2.16",
+    "react": ">=17.0.2"
   },
   "dependencies": {
     "@babel/template": "^7.28.6",

@@ -1,4 +1,4 @@
-import { View } from '@tarojs/components'
+import { Text } from '@tarojs/components'
 import classNames from 'classnames'
 import React from 'react'
 
@@ -10,5 +10,5 @@ export interface BaseIconProps {
 }
 export const BaseIcon: React.FC<BaseIconProps> = (props) => {
   const { color, size, name, className } = props
-  return <View className={classNames('iconfont', `icon-${name}`, className)} style={{ color, fontSize: size || 16 }}></View>
+  return <Text className={classNames('iconfont', `iconfont-${name}`, className)} style={{ color, fontSize: size || 16 }}/>
 }

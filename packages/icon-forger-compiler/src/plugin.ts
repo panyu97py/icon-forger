@@ -70,6 +70,7 @@ export class IconForgerPlugin {
           inputDir: sourcesDir,
           outputDir: iconfontDir,
           name: 'iconfont',
+          selector: '.iconfont',
           fontTypes: [FontAssetType.WOFF2],
           assetTypes: [OtherAssetType.CSS]
         })

@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>icon-forger</h1>
+  <h1>Icon Forger</h1>
   <p>一组面向 <strong>Taro（Webpack5）小程序</strong> 的 SVG 图标编译工具链。</p>
   <p>通过 <strong>SVG 组件替换</strong>、<strong>构建期 iconfont 生成</strong> 与 <strong>入口样式自动注入</strong>，让业务图标接入更轻、更统一。</p>
   <a href="https://www.npmjs.com/package/@icon-forger/compiler">

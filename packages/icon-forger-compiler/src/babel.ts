@@ -89,7 +89,7 @@ export default function TransformIcon ():PluginObj<TransformState> {
 
         // 替换 Jsx 元素
         const { templateCode, dependRequire = [] } = state.opts
-        const iconName = path.basename(source.value || '')
+        const iconName = path.basename(source.value, path.extname(source.value))
         const { attributes } = openingElement
         if (!state.dependRequire) state.dependRequire = new Set()
         dependRequire.forEach((item) => state.dependRequire.add(item))

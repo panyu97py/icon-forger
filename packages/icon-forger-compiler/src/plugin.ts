@@ -49,7 +49,7 @@ export class IconForgerPlugin {
       const stage = compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONS
 
       compilation.hooks.processAssets.tapPromise({ name: PLUGIN_NAME, stage }, async (assets:CompilationAssets) => {
-        if (compilation.compiler.isChild()) return
+        if (!this.iconMap.size) return
 
         const cacheDir = path.resolve('node_modules/.cache', this.options?.cacheDir || 'icon-forger')
         const sourcesDir = path.resolve(cacheDir, 'sources')

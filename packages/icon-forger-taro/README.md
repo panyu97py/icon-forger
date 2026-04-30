@@ -41,6 +41,7 @@ module.exports = {
 
 ## 🚀 使用
 
+### 业务代码
 ```tsx
 import {Icon} from '@/assets/icons/search.svg'
 
@@ -49,6 +50,11 @@ export default function Demo () {
 }
 ```
 
+### 类型提示
+> 在 global.d.ts 新增以下内容
+```ts
+/// <reference types="@icon-forger/taro/types" />
+```
 ## 📝 工作原理
 
 1. 在 Taro `babelLoader` 中自动注入 `@icon-forger/compiler/babel`

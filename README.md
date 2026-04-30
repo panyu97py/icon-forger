@@ -36,15 +36,11 @@
 
 ```text
 .
-├── assets/
-│   ├── alipay-pay-code.JPG
-│   └── wechat-pay-code.JPG
 ├── example/
 │   └── example-applet-react/
 ├── packages/
 │   ├── icon-forger-compiler/
 │   └── icon-forger-taro/
-├── .github/workflows/
 └── README.md
 ```
 

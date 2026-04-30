@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
-  "types": "types.d.ts",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "exports": {
     ".": "./dist/index.js",
-    "./base-icon": "./dist/base-icon.js"
+    "./base-icon": "./dist/base-icon.js",
+    "./types": "./dist/types.d.ts"
   },
   "repository": {
     "type": "git",

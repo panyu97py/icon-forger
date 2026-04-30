@@ -7,6 +7,7 @@ declare module '*.svg' {
         color?:string;
         name?:string;
         className?:string;
+        style?: React.CSSProperties;
     }
 
     export const Icon: React.FC<IconProps>
